@@ -2,7 +2,8 @@
  (:gen-class)
  (:require [clojure.spec.alpha :as s]
            [cheshire.core :refer :all]
-           [clojure.java.io :as io]))
+           [clojure.java.io :as io]
+           [com.adam-munoz.fixecs.aws :as aws]))
 
 ; Begin Data Specs
 
@@ -22,12 +23,14 @@
      parse-string))
 
 (s/fdef sort-env
- :args (s/cat :j-from-file ::ecs-task)
+ :args (s/cat :j-from-file ::ecs-task
+              :env-from-aws ::environment)
  :ret ::environment)
 
-(defn sort-env [j-from-file]
-  (sort-by #(% "name")
-           (j-from-file "environment")))
+(defn sort-env [j-from-file env-from-aws]
+  (let [ks (map :name env-from-aws)]
+    (sort-by #(.indexOf ks (% "name")) 
+             (j-from-file "environment"))))
 
 (s/fdef merge-env
  :args (s/cat :j-original ::ecs-task
@@ -38,15 +41,17 @@
  (merge j-original {"environment" j-env}))
 
 (s/fdef convert
- :args (s/cat :original ::ecs-task)
+ :args (s/cat :original ::ecs-task
+              :env-from-aws ::environment)
  :ret ::ecs-task)
 
-(defn convert [original]
+(defn convert [original env-from-aws]
  (merge-env original
-            (sort-env original)))
+            (sort-env original env-from-aws)))
 
 (defn -main [& args]
- (let [path (first args)]
+ (let [path (first args)
+       env-from-aws (aws/get-remote-env "auth")]
 
   (println "🐯 fixecs:" path)
 
@@ -54,5 +59,6 @@
            (io/file (str path ".bak")))
 
   (spit path
-        (generate-string (map convert (parse-json path))
+        (generate-string (map #(convert % env-from-aws) 
+                              (parse-json path))
                          {:pretty true}))))

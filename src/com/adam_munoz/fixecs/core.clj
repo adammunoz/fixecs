@@ -1,4 +1,4 @@
-(ns fixecs.core
+(ns com.adam-munoz.fixecs.core
  (:gen-class)
  (:require [clojure.spec.alpha :as s]
            [cheshire.core :refer :all]

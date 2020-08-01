@@ -6,7 +6,8 @@
                  [cheshire "5.10.0"]
                  [amazonica "0.3.152"]]
 
-  :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "1.0.632"]]}}
+  :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "1.0.632"]]}
+             :uberjar {:aot :all}}
 
   :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--stc-num-tests" 5]}
   :main com.adam-munoz.fixecs.core)

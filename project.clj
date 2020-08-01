@@ -7,5 +7,5 @@
 
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "1.0.632"]]}}
 
-  :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner"]}
+  :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--stc-num-tests" 5]}
   :main fixecs.core)

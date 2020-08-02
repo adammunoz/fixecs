@@ -1,10 +1,33 @@
-# fixecs
+# Fix ECS Task Definition
 
-A Clojure library designed to ... well, that part is up to you.
+A CLI tool designed to re-order an AWS ECS Task Definition JSON file in order to match the one registered on AWS.
+Solves this issue: https://github.com/terraform-providers/terraform-provider-aws/issues/3035
+
+**Note:**
+iI seems the issue may has already been fixed in recent versions of the AWS provider (although I have not been able to confirm it yet).
+In that case, this tool can be helpful for older versions.
 
 ## Usage
 
-FIXME
+There are 2 ways to run this tool. In both cases, Java must be installed in the system.
+
+### Leiningen
+
+Clone this repository and then run:
+
+`lein run <path-to-task.json> <task-name>`
+
+If you don't have Leiningen, it can be installed here https://leiningen.org/ .
+
+### Java JAR
+
+Download JAR file from https://github.com/adammunoz/fixecs/releases/ .
+
+Then run:
+
+`java -jar fixecs-0.1.0-stanadlone.jar <path-to-task.json> <task-name>`
+
+(Replace 0.1.0 with the verion of the actual downloaded version)
 
 ## License
 

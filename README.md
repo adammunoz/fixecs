@@ -1,22 +1,18 @@
 # Fix ECS Task Definition
+A CLI tool designed to re-order **Terraform ECS Task Definition template files** in order to match the order in  AWS.
+Solves this issue https://github.com/terraform-providers/terraform-provider-aws/issues/3035 .
 
-A CLI tool designed to re-order **Terraform ECS Task Definition template files** in order to match the order registered on AWS.
-Solves this issue: https://github.com/terraform-providers/terraform-provider-aws/issues/3035
+(It seems the issue has already been fixed in recent versions of the  provider although I have not been able to confirm it myself yet.
+In any case, this tool can be helpful for older versions of the provider.)
 
-**Note:**
-iI seems the issue may has already been fixed in recent versions of the AWS provider (although I have not been able to confirm it yet).
-In that case, this tool can be helpful for older versions.
+## Pre-requisites
+1. **Java** and the **AWS SDK** must be installed in the system.
+1. Please ensure your AWS SDK is logged in to the correct profile before running the tool.
 
 ## Usage
-
-Java and the AWS SDK must be installed in the system.
-
-Please ensure your AWS SDK is logged in to the correct profile before running the tool.
-
 There are 2 ways to run this tool: 
 
 ### Leiningen
-
 Clone this repository and then run:
 
 `lein run <path-to-task.json> <task-name>`
@@ -24,17 +20,15 @@ Clone this repository and then run:
 If you don't have Leiningen, it can be installed here https://leiningen.org/ .
 
 ### Java JAR
-
 Download JAR file from https://github.com/adammunoz/fixecs/releases/ .
 
 Then run:
 
 `java -jar fixecs-0.1.0-stanadlone.jar <path-to-task.json> <task-name>`
 
-(Replace 0.1.0 with the verion of the actual downloaded version).
+(Replace 0.1.0 with the version of the actual downloaded version).
 
 ## License
-
 Copyright © 2020 Adam Munoz
 
 This program and the accompanying materials are made available under the

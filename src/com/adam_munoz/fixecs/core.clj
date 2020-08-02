@@ -51,7 +51,8 @@
 
 (defn -main [& args]
  (let [path (first args)
-       env-from-aws (aws/get-remote-env "auth")]
+       task-name (second args)
+       env-from-aws (aws/get-remote-env task-name)]
 
   (println "🐯 fixecs:" path)
 

@@ -24,7 +24,7 @@ Download JAR file from https://github.com/adammunoz/fixecs/releases/ .
 
 Then run:
 
-`java -jar fixecs-0.1.0-stanadlone.jar <path-to-task.json> <task-name>`
+`java -jar fixecs-0.1.0-standalone.jar <path-to-task.json> <task-name>`
 
 (Replace 0.1.0 with the version of the actual downloaded version).
 

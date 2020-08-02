@@ -27,11 +27,11 @@ Then run:
 
 `java -jar fixecs-0.1.0-stanadlone.jar <path-to-task.json> <task-name>`
 
-(Replace 0.1.0 with the verion of the actual downloaded version)
+(Replace 0.1.0 with the verion of the actual downloaded version).
 
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020 Adam Munoz
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at

@@ -9,7 +9,11 @@ In that case, this tool can be helpful for older versions.
 
 ## Usage
 
-There are 2 ways to run this tool. In both cases, Java must be installed in the system.
+Java and the AWS SDK must be installed in the system.
+
+Please ensure your AWS SDK is logged in to the correct profile before running the tool.
+
+There are 2 ways to run this tool: 
 
 ### Leiningen
 

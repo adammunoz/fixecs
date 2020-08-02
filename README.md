@@ -1,6 +1,6 @@
 # Fix ECS Task Definition
 
-A CLI tool designed to re-order an AWS ECS Task Definition JSON file in order to match the one registered on AWS.
+A CLI tool designed to re-order **Terraform ECS Task Definition template files** in order to match the order registered on AWS.
 Solves this issue: https://github.com/terraform-providers/terraform-provider-aws/issues/3035
 
 **Note:**
